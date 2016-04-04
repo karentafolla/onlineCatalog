@@ -109,9 +109,10 @@
         }
         echo '<table>';
     }
+//sorts by director
     function sortDirector($directorName){
         global $dbConn;
-        $sql = "SELECT * FROM movie WHERE director = '". $directorName. "' ";
+        $sql = "SELECT * FROM movie WHERE director = '". $directorName. "'  BY title ASC ";
         $stmt = $dbConn->prepare($sql);
                         
         $stmt -> execute ();
@@ -122,4 +123,44 @@
             
         }
     }
+//sorts by rating
+    function sortRating($rating){
+        global $dbConn;
+        $sql = "SELECT * FROM movie WHERE rating = '". $rating. "'  BY title ASC ";
+        $stmt = $dbConn->prepare($sql);
+        
+        $stmt -> execute ();
+        
+        while ($row = $stmt -> fetch()){
+            echo $row['title'] . " - " . $row['rating'];
+            echo "<br/>";
+        }
+    }
+ //sorts by length of movie   
+    function sortLength($length){
+       global $dbConn;
+        $sql = "SELECT * FROM movie WHERE rating = '". $length. "' BY title ASC ";
+        $stmt = $dbConn->prepare($sql);
+        
+        $stmt -> execute ();
+        
+        while ($row = $stmt -> fetch()){
+            echo $row['title'] . " - " . $row['rating'];
+            echo "<br/>";
+        } 
+    }
+ //sorts by genre of movie   
+    function sortGenre($genre){
+       global $dbConn;
+        $sql = "SELECT * FROM movie WHERE rating = '". $genre. "' BY title ASC ";
+        $stmt = $dbConn->prepare($sql);
+        
+        $stmt -> execute ();
+        
+        while ($row = $stmt -> fetch()){
+            echo $row['title'] . " - " . $row['rating'];
+            echo "<br/>";
+        } 
+    }
+
 ?>
