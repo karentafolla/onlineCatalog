@@ -9,3 +9,11 @@
 	font-weight: bold;
 	text-align: center;
 }
+
+.filter{
+	display: inline-block;
+	height:200px;
+	width:200px;
+	border: 1px solid;
+	padding:15px;
+}

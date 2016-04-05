@@ -1,8 +1,11 @@
 <?php
-    $username = "karentafolla";
-    $password = "";
+    $username = "mirandasaari";
+    //$username="karentafolla";
+    $password = "Susan150";
+    //$password="";
     $hostname = "localhost";
-    $dbname="online_catalog";
+    $dbname="online_catalong";
+    //$dbname="online_catalog";
     $dbPort = "127.0.0.1";
 
     $dbConn = new PDO("mysql:host=$hostname;port=$dbPort;dbname=$dbname", $username, $password);
