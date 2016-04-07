@@ -1,15 +1,6 @@
 <?php
-    $username = "mirandasaari";
-    //$username="karentafolla";
-    $password = "Susan150";
-    //$password="";
-    $hostname = "localhost";
-    $dbname="online_catalong";
-    //$dbname="online_catalog";
-    $dbPort = "127.0.0.1";
-
-    $dbConn = new PDO("mysql:host=$hostname;port=$dbPort;dbname=$dbname", $username, $password);
-    $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+    include '../team_project_database/database.php'; 
+    $dbConn = getDatabaseConnection(); 
 ?>
 <!DOCTYPE html>
 <html>
