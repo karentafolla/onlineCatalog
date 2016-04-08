@@ -1,16 +1,13 @@
 <?php
 
-    
     include '../team_project_database/database.php'; 
-    
     $dbConn = getDatabaseConnection(); 
     
-    function getProductInfo(){
+    function getProductInfo(){;
         global $dbConn;
-        $sql = "SELECT title FROM movie WHERE title=:productID";
-        $nameParameter = array(":productID" => $_GET['title']);
+        $sql = "SELECT director FROM movie WHERE title=:productTitle";
+        $nameParameter = array(":productTitle" => $_GET['productTitle']);
         $stmt = $dbConn->prepare($sql);
-                        
         $stmt -> execute ($nameParameter);                
         $product = $stmt->fetch(PDO::FETCH_ASSOC);
         return $product;
@@ -24,7 +21,8 @@
     <body>
         <?php
             $productInfo = getProductInfo();   
-            echo $productInfo['movie'];
+            //echo var_dump($productInfo);
+            echo $productInfo['director'];
         ?>
 
     </body>

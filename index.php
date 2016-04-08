@@ -1,6 +1,10 @@
 <?php
     include '../team_project_database/database.php'; 
     $dbConn = getDatabaseConnection(); 
+    
+    // Natural join sql look at all different types of joins
+    // SQL to get things from different tables that have same EmployeeID
+    //$whereSql = "SELECT * FROM Employee e INNER JOIN EmployeePay ep ON e.EmployeeID = ep.EmployeeID WHERE ep.HourlyAmount = :hourly";
 ?>
 <!DOCTYPE html>
 <html>
@@ -78,7 +82,7 @@
         ?>
             
         </div>
-        <div>
+        <div class="iframeWindow">
             <iframe name="productInfoiFrame" width="250" height="315" src="getProductInfo.php" frameborder="0"></iframe>
         </div>
         <div class = "shopping cart">
@@ -97,16 +101,16 @@
         $stmt -> execute ();
         echo '<table border=1>';                 
         while ($row = $stmt -> fetch()){
-            echo '<tr><a href=getProductInfo.php?productID="'.$row['title'] .'"target="productInfoiFrame">';
-                echo '<td>';
+            echo '<tr>';
+                echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
                     echo $row['title'];
-                echo '</td>';
+                echo "</a></td>";  
                 echo '<td>';
                     echo $row['rating'];
                 echo '</td>';
             echo '</tr>';
         }
-        echo '<table>';
+        echo '</table>';
     }
 //sorts by director
     function sortDirector($directorName){
