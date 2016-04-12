@@ -106,42 +106,30 @@
             <iframe name="productInfoiFrame" align="right" width="250" height="315" src="getProductInfo.php" frameborder="0"></iframe>
         </div>
         <div class = "shopping cart">
-<<<<<<< HEAD
-            
-            
             
             <form action="shoppingCart.php" method="GET" id="nameform">
                 <button type="submit" value="Submit">Shopping Cart</button>
             </form>
             
-=======
-         <button onclick="location.href = 'shoppingCart.php';" id="shoppingCart">Shopping Cart </button>
->>>>>>> ec01b1f0441caff415c114b717ae3506a4940946
+
+         <!--//<button onclick="location.href = 'shoppingCart.php';" id="shoppingCart">Shopping Cart </button>-->
+
         </div>
     </body>
 </html>
 
 
 <?php
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
     session_start();
     $_SESSION["title"] = $_POST["title"];
-=======
+
 //counts items in cart
     $itemCounter=0;
     function clickCounter(){
         $itemCounter +=1;
         return $itemCounter;
     }
->>>>>>> ec01b1f0441caff415c114b717ae3506a4940946
+
     
 //sorts the movie by title in ASC order
     function sortTitle(){
@@ -205,8 +193,6 @@
 //         $stmt = $dbConn->prepare($sql);
                         
 //         $stmt -> execute ();
-                         
-<<<<<<< HEAD
 //          echo '<table border=1>';                 
 //         while ($row = $stmt -> fetch()){
 //             echo '<tr>';
@@ -228,32 +214,7 @@
 //         global $dbConn;
 //         $sql = "SELECT * FROM movie WHERE rating = '". $rating. "' ORDER BY title ASC ";
 //         $stmt = $dbConn->prepare($sql);
-=======
-         echo '<table border=1>';                 
-        while ($row = $stmt -> fetch()){
-            echo '<tr>';
-                echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
-                echo $row['title'];
-                echo "</a></td>";  
-                echo '<td>';
-                    echo $row['director'];
-                echo '</td>';
-                echo '<td>';
-               //echo "<a href='shoppingCart.php?id={$id}&name={$name}' class='btn btn-primary'>";
-                //        echo "<span class='glyphicon glyphicon-shopping-cart'></span> Add to cart";
-                    echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
-                echo '</td>';
-            echo '</tr>';
-        }
-        echo '</table>';
-    }
-//sorts by rating
-    function sortRating($rating){
-        global $dbConn;
-        $sql = "SELECT * FROM movie WHERE rating = '". $rating. "' ORDER BY title ASC ";
-        $stmt = $dbConn->prepare($sql);
->>>>>>> ec01b1f0441caff415c114b717ae3506a4940946
-        
+
 //         $stmt -> execute ();
         
 //          echo '<table border=1>';                 
@@ -301,10 +262,7 @@
 //       global $dbConn;
 //         $sql = "SELECT * FROM movie WHERE genre = '". $genre. "' ORDER BY title ASC";
 //         $stmt = $dbConn->prepare($sql);
-        
 //         $stmt->execute();
-        
-<<<<<<< HEAD
 //         echo '<table border=1>';                 
 //         while ($row = $stmt -> fetch()){
 //             echo '<tr>';
@@ -322,29 +280,6 @@
 //         }
 //         echo '</table>';
 //     }
-
-=======
-        echo '<table border=1>';                 
-        while ($row = $stmt -> fetch()){
-            echo '<tr>';
-                echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
-                    echo $row['title'];
-                echo "</a></td>";  
-                echo '<td>';
-                    echo $row['genre'];
-                echo '</td>';
-                echo "<form name= 'cart' action='addToCart.php' method='POST'>";
-                 echo "<input name='bid' type='hidden' value=" . $row['title']. "/></td>";
-                echo '<td>';
-                    //echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
-                    echo "<input type='submit' name='submit' value='Add to Cart' />";
-                echo '</td>';
-                echo "</form>";
-            echo '</tr>';
-        }
-        echo '</table>';
-    }
->>>>>>> ec01b1f0441caff415c114b717ae3506a4940946
 ?>
 <script>
     
