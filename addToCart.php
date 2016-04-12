@@ -1,6 +1,8 @@
 <?php
+<<<<<<< HEAD
     
-    
+    include '../team_project_database/database.php'; 
+    $dbConn = getDatabaseConnection(); 
     
     // need this to start session tracking IN EVERY PHP page using session
     session_start();
@@ -21,3 +23,7 @@
         <a href="shoppingCart.php?title=<?= $_POST["title"] ?>">Please Buy Now!</a>
     </body>
 </html>
+=======
+     
+?>
+>>>>>>> ec01b1f0441caff415c114b717ae3506a4940946
