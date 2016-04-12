@@ -104,11 +104,19 @@
             <iframe name="productInfoiFrame" align="right" width="250" height="315" src="getProductInfo.php" frameborder="0"></iframe>
         </div>
         <div class = "shopping cart">
-            
+         <button onclick="location.href = 'shoppingCart.php';" id="shoppingCart">Shopping Cart </button>
         </div>
     </body>
 </html>
+
+
 <?php
+//counts items in cart
+    $itemCounter=0;
+    function clickCounter(){
+        $itemCounter +=1;
+        return $itemCounter;
+    }
     
 //sorts the movie by title in ASC order
     function sortTitle(){
@@ -174,6 +182,8 @@
                     echo $row['director'];
                 echo '</td>';
                 echo '<td>';
+               //echo "<a href='shoppingCart.php?id={$id}&name={$name}' class='btn btn-primary'>";
+                //        echo "<span class='glyphicon glyphicon-shopping-cart'></span> Add to cart";
                     echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
                 echo '</td>';
             echo '</tr>';
@@ -245,12 +255,15 @@
                 echo '<td>';
                     echo $row['genre'];
                 echo '</td>';
+                echo "<form name= 'cart' action='addToCart.php' method='POST'>";
+                 echo "<input name='bid' type='hidden' value=" . $row['title']. "/></td>";
                 echo '<td>';
-                    echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
+                    //echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
+                    echo "<input type='submit' name='submit' value='Add to Cart' />";
                 echo '</td>';
+                echo "</form>";
             echo '</tr>';
         }
         echo '</table>';
     }
-
 ?>
