@@ -2,6 +2,8 @@
     include '../team_project_database/database.php'; 
     $dbConn = getDatabaseConnection(); 
     
+    
+    //$_SESSION["title"] = $_POST["Title"];
     // Natural join sql look at all different types of joins
     // SQL to get things from different tables that have same EmployeeID
     //$whereSql = "SELECT * FROM Employee e INNER JOIN EmployeePay ep ON e.EmployeeID = ep.EmployeeID WHERE ep.HourlyAmount = :hourly";
@@ -105,10 +107,26 @@
         </div>
         <div class = "shopping cart">
             
+            
+            
+            <form action="shoppingCart.php" method="GET" id="nameform">
+                <button type="submit" value="Submit">Shopping Cart</button>
+            </form>
+            
         </div>
     </body>
 </html>
 <?php
+
+
+
+
+
+
+
+
+    session_start();
+    $_SESSION["title"] = $_POST["title"];
     
 //sorts the movie by title in ASC order
     function sortTitle(){
@@ -117,8 +135,10 @@
         $stmt = $dbConn->prepare($sql);
                         
         $stmt -> execute ();
+        
         echo '<table border=1>';                 
         while ($row = $stmt -> fetch()){
+            $title = $row['title'];
             echo '<tr>';
                 echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
                     echo $row['title'];
@@ -127,130 +147,146 @@
                     echo $row['rating'];
                 echo '</td>';
                 echo '<td>';
-                    echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
+                    
+                    echo  '<form action="addToCart.php" method="POST">';
+                        echo '<button type="submit" id="name" name="title" class="form-control" value="' . $title . '">Buy</button>';
+                        
+                        // using JS
+                        //echo '<button onclick="itemClicked()" type="button" name='.$title .'>Add to Cart</button>';
+                        //echo '<button type="button" name='.$title .'>Add to Cart</button>';
+                    echo '</form>';
                 echo '</td>';
             echo '</tr>';
         }
         echo '</table>';
         
-    }
-    function sortTitleNoOrder(){
-        global $dbConn;
-        $sql = "SELECT * FROM movie";
-        $stmt = $dbConn->prepare($sql);
+     }
+//     function sortTitleNoOrder(){
+//         global $dbConn;
+//         $sql = "SELECT * FROM movie";
+//         $stmt = $dbConn->prepare($sql);
                         
-        $stmt -> execute ();
-        echo '<table border=1>';                 
-        while ($row = $stmt -> fetch()){
-            echo '<tr>';
-                echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
-                    echo $row['title'];
-                echo "</a></td>";  
-                echo '<td>';
-                    echo $row['rating'];
-                echo '</td>';
-                echo '<td>';
-                    echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
-                echo '</td>';
-            echo '</tr>';
-        }
-        echo '</table>';
-    }
-//sorts by director
-    function sortDirector($directorName){
-        global $dbConn;
-        $sql = "SELECT * FROM movie WHERE director = '". $directorName. "' ORDER BY title ASC ";
-        $stmt = $dbConn->prepare($sql);
+//         $stmt -> execute ();
+//         echo '<table border=1>';                 
+//         while ($row = $stmt -> fetch()){
+//             echo '<tr>';
+//                 echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
+//                     echo $row['title'];
+//                 echo "</a></td>";  
+//                 echo '<td>';
+//                     echo $row['rating'];
+//                 echo '</td>';
+//                 echo '<td>';
+//                     echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
+//                 echo '</td>';
+//             echo '</tr>';
+//         }
+//         echo '</table>';
+//     }
+// //sorts by director
+//     function sortDirector($directorName){
+//         global $dbConn;
+//         $sql = "SELECT * FROM movie WHERE director = '". $directorName. "' ORDER BY title ASC ";
+//         $stmt = $dbConn->prepare($sql);
                         
-        $stmt -> execute ();
+//         $stmt -> execute ();
                          
-         echo '<table border=1>';                 
-        while ($row = $stmt -> fetch()){
-            echo '<tr>';
-                echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
-                echo $row['title'];
-                echo "</a></td>";  
-                echo '<td>';
-                    echo $row['director'];
-                echo '</td>';
-                echo '<td>';
-                    echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
-                echo '</td>';
-            echo '</tr>';
-        }
-        echo '</table>';
-    }
-//sorts by rating
-    function sortRating($rating){
-        global $dbConn;
-        $sql = "SELECT * FROM movie WHERE rating = '". $rating. "' ORDER BY title ASC ";
-        $stmt = $dbConn->prepare($sql);
+//          echo '<table border=1>';                 
+//         while ($row = $stmt -> fetch()){
+//             echo '<tr>';
+//                 echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
+//                 echo $row['title'];
+//                 echo "</a></td>";  
+//                 echo '<td>';
+//                     echo $row['director'];
+//                 echo '</td>';
+//                 echo '<td>';
+//                     echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
+//                 echo '</td>';
+//             echo '</tr>';
+//         }
+//         echo '</table>';
+//     }
+// //sorts by rating
+//     function sortRating($rating){
+//         global $dbConn;
+//         $sql = "SELECT * FROM movie WHERE rating = '". $rating. "' ORDER BY title ASC ";
+//         $stmt = $dbConn->prepare($sql);
         
-        $stmt -> execute ();
+//         $stmt -> execute ();
         
-         echo '<table border=1>';                 
-        while ($row = $stmt -> fetch()){
-            echo '<tr>';
-                echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
-                    echo $row['title'];
-                echo "</a></td>";  
-                echo '<td>';
-                    echo $row['rating'];
-                echo '</td>';
-                echo '<td>';
-                    echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
-                echo '</td>';
-            echo '</tr>';
-        }
-        echo '</table>';
-    }
- //sorts by length of movie   
-    function sortLength($length){
-       global $dbConn;
-        $sql = "SELECT * FROM movie WHERE length = '". $length. "' ORDER BY title ASC ";
-        $stmt = $dbConn->prepare($sql);
+//          echo '<table border=1>';                 
+//         while ($row = $stmt -> fetch()){
+//             echo '<tr>';
+//                 echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
+//                     echo $row['title'];
+//                 echo "</a></td>";  
+//                 echo '<td>';
+//                     echo $row['rating'];
+//                 echo '</td>';
+//                 echo '<td>';
+//                     echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
+//                 echo '</td>';
+//             echo '</tr>';
+//         }
+//         echo '</table>';
+//     }
+//  //sorts by length of movie   
+//     function sortLength($length){
+//       global $dbConn;
+//         $sql = "SELECT * FROM movie WHERE length = '". $length. "' ORDER BY title ASC ";
+//         $stmt = $dbConn->prepare($sql);
         
-        $stmt -> execute ();
+//         $stmt -> execute ();
         
-         echo '<table border=1>';                 
-        while ($row = $stmt -> fetch()){
-            echo '<tr>';
-                echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
-                    echo $row['title'];
-                echo "</a></td>";  
-                echo '<td>';
-                    echo $row['length'];
-                echo '</td>';
-                echo '<td>';
-                    echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
-                echo '</td>';
-            echo '</tr>';
-        }
-        echo '</table>'; 
-    }
- //sorts by genre of movie   
-    function sortGenre($genre){
-       global $dbConn;
-        $sql = "SELECT * FROM movie WHERE genre = '". $genre. "' ORDER BY title ASC";
-        $stmt = $dbConn->prepare($sql);
+//          echo '<table border=1>';                 
+//         while ($row = $stmt -> fetch()){
+//             echo '<tr>';
+//                 echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
+//                     echo $row['title'];
+//                 echo "</a></td>";  
+//                 echo '<td>';
+//                     echo $row['length'];
+//                 echo '</td>';
+//                 echo '<td>';
+//                     echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
+//                 echo '</td>';
+//             echo '</tr>';
+//         }
+//         echo '</table>'; 
+//     }
+//  //sorts by genre of movie   
+//     function sortGenre($genre){
+//       global $dbConn;
+//         $sql = "SELECT * FROM movie WHERE genre = '". $genre. "' ORDER BY title ASC";
+//         $stmt = $dbConn->prepare($sql);
         
-        $stmt->execute();
+//         $stmt->execute();
         
-        echo '<table border=1>';                 
-        while ($row = $stmt -> fetch()){
-            echo '<tr>';
-                echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
-                    echo $row['title'];
-                echo "</a></td>";  
-                echo '<td>';
-                    echo $row['genre'];
-                echo '</td>';
-                echo '<td>';
-                    echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
-                echo '</td>';
-            echo '</tr>';
-        }
-        echo '</table>';
-    }
+//         echo '<table border=1>';                 
+//         while ($row = $stmt -> fetch()){
+//             echo '<tr>';
+//                 echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
+//                     echo $row['title'];
+//                 echo "</a></td>";  
+//                 echo '<td>';
+//                     echo $row['genre'];
+//                 echo '</td>';
+//                 echo '<td>';
+//                     // using js
+//                     // echo '<button onclick="clickCounter()" type="button">Add to Cart</button>';
+//                 echo '</td>';
+//             echo '</tr>';
+//         }
+//         echo '</table>';
+//     }
 
 ?>
+<script>
+    
+    function itemClicked(){
+        var counter = 10;
+        document.write(counter);
+        
+    }
+</script>
