@@ -5,7 +5,7 @@
     
     function getProductInfo(){;
         global $dbConn;
-        $sql = "SELECT director FROM movie WHERE title=:productTitle";
+        $sql = "SELECT summary FROM movie WHERE title=:productTitle";
         $nameParameter = array(":productTitle" => $_GET['productTitle']);
         $stmt = $dbConn->prepare($sql);
         $stmt -> execute ($nameParameter);                
@@ -22,7 +22,7 @@
         <?php
             $productInfo = getProductInfo();   
             //echo var_dump($productInfo);
-            echo $productInfo['director'];
+            echo $productInfo['summary'];
         ?>
 
     </body>
