@@ -3,6 +3,9 @@
     include '../team_project_database/database.php'; 
     $dbConn = getDatabaseConnection(); 
     
+    session_start();
+    
+    
     function getProductInfo(){;
         global $dbConn;
         $sql = "SELECT summary FROM movie WHERE title=:productTitle";

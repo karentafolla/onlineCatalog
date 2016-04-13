@@ -2,6 +2,8 @@
     include '../team_project_database/database.php'; 
     $dbConn = getDatabaseConnection(); 
     
+    session_start();
+    
     
     //$_SESSION["title"] = $_POST["Title"];
     // Natural join sql look at all different types of joins
@@ -107,8 +109,14 @@
         </div>
         <div class = "shopping cart">
             
-            <form action="addToCart.php" method="POST" id="nameform">
-                <button type="submit" value="Submit">Shopping Cart</button>
+            <!--<form action="addToCart.php" method="POST" id="nameform">-->
+            <!--    <button type="submit" value="Submit">Shopping Cart</button>-->
+            <form action="shoppingCart.php" method="GET" id="nameform">
+                <?php
+                    $cartCount=count($_SESSION['cart_items'])
+                ?>
+                <button type="submit" value="Submit">Cart <?php echo $cartCount; ?></button>
+
             </form>
             
 
@@ -163,11 +171,16 @@
                         //echo '<button type="submit" id="name" name="title" class="form-control" value="' . $title . '">Buy</button>';
                         $ar = array();
                         array_push($ar,$title);
+                     echo "<a href='addToCart.php?title=$title'> ";
+                     echo "Add to Cart";
+                    //echo  '<form action="addToCart.php" method="POST">';
+                   // echo '<button type="submit" id="name" name="title" class="form-control" value="' . $title . '">Buy</button>';
+
                         // using JS
                         //echo '<button onclick="itemClicked()" type="button" name='.$title .'>Add to Cart</button>';
                         //echo '<button type="button" name='.$title .'>Add to Cart</button>';
                     echo '</form>';
-                echo '</td>';
+                echo '</a></td>';
             echo '</tr>';
         }
         echo '</table>';

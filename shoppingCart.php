@@ -4,7 +4,13 @@ session_start();
 
     include '../team_project_database/database.php'; 
     $dbConn = getDatabaseConnection(); 
-
+    
+    $title = isset($_GET['title']) ? $_GET['title'] : "";
+    
+    $titles="";
+    foreach($_SESSION['cart_items'] as $title=>$value){
+        $titles = $titles . $title . ",";
+    }
 
 ?>
 
@@ -17,17 +23,28 @@ session_start();
     <body>
   
         The title passed from the first page is <?= $_SESSION["title"] ?> 
-
         <div class="shoppingCart">
             Shopping Cart 
         </div>
         <div class="items">
-            Items:
-            
+            Items:<br>
+            <?php
+            //$_SESSION["title"] 
+            $query = "SELECT title, rating, genre FROM movie WHERE title IN ({$titles}) ORDER BY title";
+            $stmt = $con->prepare( $query );
+            $stmt->execute();
+
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            extract($row);
+            echo "<table>";
+                echo "<tr>";
+                    echo "<td>{$title}</td>";
+                echo "</tr>";
+            echo "</table>";
+            }
+            ?>
         </div>
-        <?php
-        
-        ?>
+
         <div class="home">
         <button onclick="location.href = 'index.php';" id="HomePage">Main Page </button>
         </div>
