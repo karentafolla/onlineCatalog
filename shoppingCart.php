@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+    session_start();
 
     include '../team_project_database/database.php'; 
     $dbConn = getDatabaseConnection(); 
@@ -8,12 +8,8 @@ session_start();
     $title = isset($_GET['title']) ? $_GET['title'] : "Something else";
     $counter = isset($_GET['counter']) ? $_GET['counter'] : 5;
     
-   // print_r($_SESSION['cart_items']);
+    print_r($_SESSION['cart_items']);
     
-
-    // foreach($_SESSION['cart_items'] as $counter=>$title){
-    //     echo $title;
-    // }
     function printArray(){
         foreach($_SESSION['cart_items'] as $counter => $title){
             echo $title;
@@ -57,3 +53,6 @@ session_start();
 
     </body>
 </html>
+<?php
+    session_destroy();
+?>
