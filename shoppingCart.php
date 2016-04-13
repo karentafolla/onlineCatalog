@@ -8,8 +8,8 @@ session_start();
     $title = isset($_GET['title']) ? $_GET['title'] : "";
     
     $titles="";
-    foreach($_SESSION['cart_items'] as $title=>$value){
-        $titles = $titles . $title . ",";
+    foreach($_SESSION['cart_items'] as $counter=>$value){
+        $titles = $counter . $title . ",";
     }
 
 ?>
@@ -22,7 +22,7 @@ session_start();
     </head>
     <body>
   
-        The title passed from the first page is <?= $_SESSION["title"] ?> 
+        The title passed from the first page is <?= $_SESSION['title'] ?> 
         <div class="shoppingCart">
             Shopping Cart 
         </div>
