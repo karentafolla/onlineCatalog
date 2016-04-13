@@ -5,8 +5,9 @@
     
     session_start();
     
-    
-    function getProductInfo(){;
+    $productInfo = getProductInfo();
+    echo $productInfo['summary'];
+    function getProductInfo(){
         global $dbConn;
         $sql = "SELECT summary FROM movie WHERE title=:productTitle";
         $nameParameter = array(":productTitle" => $_GET['productTitle']);
@@ -16,20 +17,19 @@
         return $product;
     }
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <title> </title>
-    </head>
-    <body>
-        <div class=summary>
-        <?php
-            $productInfo = getProductInfo();   
-            //echo var_dump($productInfo);
-            echo $productInfo['summary'];
-        ?>
-        </div>
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--    <head>-->
+<!--        <link rel="stylesheet" type="text/css" href="css/main.css">-->
+<!--        <title> </title>-->
+<!--    </head>-->
+<!--    <body>-->
+<!--        <div class=summary>-->
+<!--        <=?php-->
+<!--            $productInfo = getProductInfo();-->
+<!--            echo $productInfo['summary'];-->
+<!--        ?>-->
+<!--        </div>-->
 
-    </body>
-</html>
+<!--    </body>-->
+<!--</html>-->

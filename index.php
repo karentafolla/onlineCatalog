@@ -121,9 +121,10 @@
             }
         ?>
             
-        </div>
-        <div class="iframeWindow">
-            <iframe name="productInfoiFrame" align="right" width="250" height="315" src="getProductInfo.php" frameborder="0"></iframe>
+        
+            <!--<div class="iframeWindow">-->
+                <iframe name="productInfoiFrame" style="float:right;" src="getProductInfo.php" frameborder="0"></iframe>
+            <!--</div>-->
         </div>
         <div class = "shoppingcCart">
             
@@ -153,10 +154,13 @@
                         
         $stmt -> execute ();
         
-        echo '<table border=1>';                 
+        echo '<table border=1  style="display: inline-block;">';                 
         while ($row = $stmt -> fetch()){
             $title = $row['title'];
             echo '<tr>';
+                // echo '<td>';
+                // echo '<iframe name="productInfoiFrame" style="float:right" src="getProductInfo.php" frameborder="0"></iframe>';
+                // echo '</td>';
                 echo "<td id='product'><a href='getProductInfo.php?productTitle=" .$row['title']."' target='productInfoiFrame'> ";
                     echo $row['title'];
                 echo "</a></td>";  
@@ -183,7 +187,7 @@
         $stmt = $dbConn->prepare($sql);
                         
         $stmt -> execute ();
-        echo '<table border=1>';                 
+        echo '<table border=1 style="display: inline-block;">';                 
         while ($row = $stmt -> fetch()){
             $title =$row['title'];
             echo '<tr>';
@@ -210,7 +214,7 @@
         $stmt = $dbConn->prepare($sql);
                         
         $stmt -> execute ();
-         echo '<table border=1>';                 
+         echo '<table border=1 style="display: inline-block;">';                 
         while ($row = $stmt -> fetch()){
                 $title = $row['title'];
             echo '<tr>';
@@ -238,7 +242,7 @@
 
         $stmt -> execute ();
         
-         echo '<table border=1>';                 
+         echo '<table border=1 style="display: inline-block;">';                 
         while ($row = $stmt -> fetch()){
             $title = $row['title'];
             echo '<tr>';
@@ -266,7 +270,7 @@
         
         $stmt -> execute ();
         
-         echo '<table border=1>';                 
+         echo '<table border=1 style="display: inline-block;">';                 
         while ($row = $stmt -> fetch()){
             $title = $row['title'];
             echo '<tr>';
@@ -292,7 +296,7 @@
         $sql = "SELECT * FROM movie WHERE genre = '". $genre. "' ORDER BY title ASC";
         $stmt = $dbConn->prepare($sql);
         $stmt->execute();
-        echo '<table border=1>';                 
+        echo '<table border=1 style="display: inline-block;">';                 
         while ($row = $stmt -> fetch()){
             $title = $row['title'];
             echo '<tr>';
