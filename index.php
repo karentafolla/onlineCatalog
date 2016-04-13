@@ -1,34 +1,22 @@
 <?php
     include '../team_project_database/database.php'; 
     $dbConn = getDatabaseConnection(); 
-    
+    $counter =0;
     session_start();
-    session_destroy();
+    //session_destroy();
     
     $counter = isset($_GET['counter']) ? $_GET['counter'] : 0;
     $action = isset($_GET['action']) ? $_GET['action'] : "index action";
     $passedTitle = isset($_GET['title']) ? $_GET['title'] : "Index Title";
     
-    //if(!NULL == $_SESSION('cart_items'))
-        //var_dump($_SESSION('cart_items'));
+    // if(!NULL == $_SESSION('cart_items'))
+    //     print_r($_SESSION('cart_items'));
+    // foreach($_SESSION['cart_items'] as $counter=>$value){
+    //     $value = $counter . $value . ",";
+    // }
     
     echo $counter;
     
-    if($action == "added"){
-        echo "you added " . $passedTitle;
-    }
-    if($action == "not added"){
-        echo "you did not add";
-    }
-    
-    $counter = isset($_GET['counter']) ? $_GET['counter'] : 0;
-    $action = isset($_GET['action']) ? $_GET['action'] : "index action";
-    $passedTitle = isset($_GET['title']) ? $_GET['title'] : "Index Title";
-    
-    //if(!NULL == $_SESSION('cart_items'))
-        //var_dump($_SESSION('cart_items'));
-        
-    echo $counter;  
     
     if($action == "added"){
         echo "you added " . $passedTitle;
@@ -36,6 +24,7 @@
     if($action == "not added"){
         echo "you did not add";
     }
+  
     //$_SESSION["title"] = $_POST["Title"];
     // Natural join sql look at all different types of joins
     // SQL to get things from different tables that have same EmployeeID
@@ -175,8 +164,9 @@
     
 //sorts the movie by title in ASC order
     function sortTitle(){
-        $counter++;
+        
         global $dbConn;
+        global $counter;
         $sql = "SELECT * FROM movie ORDER BY title ASC";
         $stmt = $dbConn->prepare($sql);
                         

@@ -12,9 +12,9 @@
 
     $title = isset($_GET['title']) ? $_GET['title'] : "Something else";
     $counter = isset($_GET['counter']) ? $_GET['counter'] : 5;
-
+    
     $counter++;
-  
+    echo $counter;
     //if empty
     if(!isset($_SESSION['cart_items'])){
     $_SESSION['cart_items'] = array();
