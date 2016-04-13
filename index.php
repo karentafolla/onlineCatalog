@@ -77,7 +77,6 @@
             </form>
         </div>
         <div class = "information">
-        
         <?php
             if(isset($_POST['Title'])){
                 if($_POST['Title'] == "Yes"){

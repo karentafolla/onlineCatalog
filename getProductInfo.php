@@ -19,14 +19,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
         <title> </title>
     </head>
     <body>
+        <div class=summary>
         <?php
             $productInfo = getProductInfo();   
             //echo var_dump($productInfo);
             echo $productInfo['summary'];
         ?>
+        </div>
 
     </body>
 </html>

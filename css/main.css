@@ -35,6 +35,11 @@
 	background-color: #ffa85a;
 }
 
+.summary{
+	background-color: #ffffff;
+	border: 1px solid;
+}
+
 /*.radioSelections{*/
 /*	display: inline-block;*/
 /*	text-align: center; */
