@@ -11,11 +11,28 @@
 }
 
 .filter{
-	display: inline-block;
+	display:inline-block;
 	height:200px;
 	width:200px;
-	border: 1px solid;
+	border: 2.5px solid;
 	padding:15px;
+}
+
+.search{
+	font-size: 35px;
+	padding-top: 20px;
+}
+
+.shoppingCart{
+	font-size: 20px;
+	padding-top: 20px;	
+}
+.radioSelections{
+
+}
+
+.bg{
+	background-color: #ffa85a;
 }
 
 /*.radioSelections{*/

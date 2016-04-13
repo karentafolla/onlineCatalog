@@ -13,7 +13,7 @@
     $_SESSION['cart_items'] = array();
     }
     else {
-    $_SESSION["cart_items"] = $title;
+    $_SESSION['cart_items'] = $title;
     header('Location: getProductInfo.php?action=added&title' . $title . '&name=' . $name);
     }
      
