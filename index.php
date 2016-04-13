@@ -69,6 +69,10 @@
                     <input type="radio" value="84" name="Length"> 1 hour 24 mins <br>
                     <input type="radio" value="100" name="Length"> 1 hour 40 mins <br>
                     <input type="radio" value="106" name="Length"> 1 hour 46 mins <br>
+                    <input type="radio" value="112" name="Length"> 1 hour 52 mins <br>
+                    <input type="radio" value="129" name="Length"> 2 hours 9 mins <br>
+                    <input type="radio" value="132" name="Length"> 2 hours 12 mins <br>
+
                 <!--</fieldset>-->
             </div>
             <div class="filter">
@@ -86,6 +90,9 @@
                     <input type="radio" value="Christopher Nolan" name="Director"> Christopher Nolan <br>
                     <input type="radio" value="David Silverman" name="Director"> David Silverman <br>
                     <input type="radio" value="Guillermo Del Toro" name="Director"> Guillermo Del Toro <br>
+                    <input type="radio" value="Chris Miller" name="Director"> Chris Miller <br>
+                    <input type="radio" value="Matt Reeves" name="Director"> Matt Reeves<br>
+                    <input type="radio" value="Tim Burton" name="Director"> Tim Burton <br>
                 <!--</fieldset>-->
             </div> 
             <div class="search">
@@ -128,7 +135,7 @@
         <div class="iframeWindow">
             <iframe name="productInfoiFrame" align="right" width="250" height="315" src="getProductInfo.php" frameborder="0"></iframe>
         </div>
-        <div class = "shopping cart">
+        <div class = "shoppingcCart">
             
             <form action="shoppingCart.php" method="POST" id="nameform">
                 <!--<button type="submit" value="Submit">Shopping Cart</button>-->
@@ -136,8 +143,7 @@
             <!--    php?php -->
             <!--        //$cartCount=count($_SESSION['cart_items'])-->
             <!--    ?>-->
-             <button type="submit" value="Submit">View Shopping Cart <?php echo $cartCount; ?></button>
-
+             <button type="submit" value="Submit">View Shopping Cart </button>
             </form>
             
 
