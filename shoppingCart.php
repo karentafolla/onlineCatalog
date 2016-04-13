@@ -9,13 +9,13 @@
     $counter = isset($_GET['counter']) ? $_GET['counter'] : 5;
 
     function printArray(){
-        if($counter==0)
+        if($_SESSION['cart_items']=='')
         {
             echo "Your cart is empty";
         }
         else{
             foreach($_SESSION['cart_items'] as $counter => $title){
-                echo $title . "</ br>";
+                echo $title . "    " . $counter . "</ br>";
             }
         }
     }
