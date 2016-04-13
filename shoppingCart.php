@@ -9,6 +9,7 @@
     $counter = isset($_GET['counter']) ? $_GET['counter'] : 5;
 
     function printArray(){
+<<<<<<< HEAD
         global $counter;
         if($counter ==  0)
         {
@@ -16,7 +17,9 @@
         }
         else{
             foreach($_SESSION['cart_items'] as $counter => $title){
+
                 echo $title . "<br>";
+                echo $title . "    " . $counter . "</ br>";
             }
         }
     }
