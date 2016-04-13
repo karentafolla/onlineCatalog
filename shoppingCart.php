@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
     include '../team_project_database/database.php'; 
@@ -9,9 +10,9 @@ session_start();
     $title = isset($_GET['title']) ? $_GET['title'] : "";
     
     $titles="";
-    foreach($_SESSION['cart_items'] as $values){
-        //$titles = $counter . $title . ",";
-        echo $values['title'];
+
+    foreach($_SESSION['cart_items'] as $counter=>$value){
+        $titles = $counter . $title . ",";
     }
 
 ?>
@@ -23,6 +24,10 @@ session_start();
         <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
     <body class="bg">
+
+  
+        The title passed from the first page is <?= $_SESSION['title'] ?> 
+
         <div class="shoppingCart">
             Shopping Cart 
         </div>
@@ -45,5 +50,6 @@ session_start();
         <div class="home">
         <button onclick="location.href = 'index.php';" id="HomePage">Main Page </button>
         </div>
+
     </body>
 </html>

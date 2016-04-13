@@ -11,10 +11,10 @@
 }
 
 .filter{
-	display:inline-block;
-	height:200px;
-	width:200px;
-	border: 2.5px solid;
+	display: inline-block;
+	height:auto;
+	width:auto;
+	border: 1px solid;
 	padding:15px;
 }
 

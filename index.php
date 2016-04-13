@@ -3,6 +3,23 @@
     $dbConn = getDatabaseConnection(); 
     
     session_start();
+    session_destroy();
+    
+    $counter = isset($_GET['counter']) ? $_GET['counter'] : 0;
+    $action = isset($_GET['action']) ? $_GET['action'] : "index action";
+    $passedTitle = isset($_GET['title']) ? $_GET['title'] : "Index Title";
+    
+    //if(!NULL == $_SESSION('cart_items'))
+        //var_dump($_SESSION('cart_items'));
+    
+    echo $counter;
+    
+    if($action == "added"){
+        echo "you added " . $passedTitle;
+    }
+    if($action == "not added"){
+        echo "you did not add";
+    }
     
     $counter = isset($_GET['counter']) ? $_GET['counter'] : 0;
     $action = isset($_GET['action']) ? $_GET['action'] : "index action";
@@ -122,12 +139,16 @@
         <div class="iframeWindow">
             <iframe name="productInfoiFrame" align="right" width="250" height="315" src="getProductInfo.php" frameborder="0"></iframe>
         </div>
-        <div class = "shoppingCart">
-            <form action="shoppingCart.php" method="GET" id="nameform">
-                <?php
-                $cartCount=count($_SESSION['cart_items'])
-                ?>
-                <button type="submit" value="Submit">Cart: <?php echo $cartCount; ?></button>
+        <div class = "shopping cart">
+            
+            <form action="shoppingCart.php" method="POST" id="nameform">
+                <!--<button type="submit" value="Submit">Shopping Cart</button>-->
+            <!--<form action="shoppingCart.php" method="POST" id="nameform">-->
+            <!--    php?php -->
+            <!--        //$cartCount=count($_SESSION['cart_items'])-->
+            <!--    ?>-->
+             <button type="submit" value="Submit">View Shopping Cart <?php echo $cartCount; ?></button>
+
             </form>
             
 
@@ -139,9 +160,11 @@
 
 
 <?php
-    session_start();
+    //session_start();
     $_SESSION["title"] = $_POST["title"];
-
+    $_SESSION['arr'];
+    //$_SESSION['cart_items'] = $_SESSION['title'];
+    
 //counts items in cart
     $itemCounter=0;
     function clickCounter(){
@@ -152,6 +175,7 @@
     
 //sorts the movie by title in ASC order
     function sortTitle(){
+        $counter++;
         global $dbConn;
         $sql = "SELECT * FROM movie ORDER BY title ASC";
         $stmt = $dbConn->prepare($sql);
@@ -169,20 +193,40 @@
                     echo $row['rating'];
                 echo '</td>';
                 echo '<td>';
-                     echo "<a href='addToCart.php?title=$title'> ";
-                     echo "Add to Cart";
+                    
+                    //echo  '<form action="addToCart.php" method="GET">';
+                        //<input type="text" id="name" name="name" class="form-control" placeholder="Full Name">
+                        
+                       echo "<a href='addToCart.php?title={$title}&counter={$counter}' class='btn btn-primary'>";
+                        //echo '<a name="' .$title. '"}';
+                        echo "<span class='glyphicon glyphicon-shopping-cart'></span> Add to cart";
+                        echo "</a>";
+                        
+                        //echo '<button type="submit" id="name" name="title" class="form-control" value="' . $title . '"> Add to Cart </button>';
+       
+                        
+                    //  echo "<a href='addToCart.php?title=$title'> ";
+                    //  echo "Add to Cart";
+                    //  echo "</a>";
                     //echo  '<form action="addToCart.php" method="POST">';
                    // echo '<button type="submit" id="name" name="title" class="form-control" value="' . $title . '">Buy</button>';
+
                         // using JS
                         //echo '<button onclick="itemClicked()" type="button" name='.$title .'>Add to Cart</button>';
                         //echo '<button type="button" name='.$title .'>Add to Cart</button>';
-                    echo '</form>';
+                   // echo '</form>';
                 echo '</a></td>';
+                echo '<td>' . $counter. '</td>';
             echo '</tr>';
         }
         echo '</table>';
         
      }
+     
+    //  function addData(){
+    //      $_SESSION['cart_items'][$title] = array('Quantity' => $quantity, 'Total' => $total);
+    //  }
+     
 //     function sortTitleNoOrder(){
 //         global $dbConn;
 //         $sql = "SELECT * FROM movie";
