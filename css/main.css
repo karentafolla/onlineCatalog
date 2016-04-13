@@ -10,6 +10,18 @@
 	text-align: center;
 }
 
+.titlec{
+   	font-family: times, Times New Roman, times-roman, georgia, serif;
+	color: #444;
+	margin: 0;
+	padding: 20px;
+	font-size: 51px;
+	line-height: 44px;
+	letter-spacing: -2px;
+	font-weight: bold;
+	text-align: center;
+}
+
 .filter{
 	display: inline-block;
 	height:auto;
@@ -40,7 +52,6 @@
 .summary{
 	background-color: #ffffff;
 }
-<<<<<<< HEAD
 
 .items{
 	font-size:30px;
@@ -50,9 +61,10 @@
 }
 
 .itemList{
-	font-size:20px;
+	font-size:15px;
 	padding-left: 30px;
 	padding-top: 20px;
+	padding-right:20px;
 }
 
 .buy{
@@ -74,6 +86,11 @@
 	display: inline-block;
 	height:auto;
 	width:auto;
+}
+
+.home{
+	padding-top: 40px;
+	padding-left: 20px;
 }
 /*.radioSelections{*/
 /*	display: inline-block;*/

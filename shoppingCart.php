@@ -10,7 +10,7 @@
 
     function printArray(){
         global $counter;
-        if($counter ==  0)
+        if($_SESSION['cart_items'] ==  '')
         {
             echo "Your cart is empty";
         }
@@ -49,10 +49,7 @@
             <div class="itemList">
                 <?= printArray(); ?> 
             </div>
-            <div class="buy">
-                <!--doesn't do anything -->
-                <input type ="button" value="Buy Now"> 
-            </div>
+        
         </div>
 
         <div class="home">

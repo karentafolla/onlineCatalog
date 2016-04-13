@@ -152,14 +152,12 @@
         $stmt = $dbConn->prepare($sql);
                         
         $stmt -> execute ();
-        
-        echo '<table border=1>';  
+        echo '<table border=1  style="display: inline-block;">';
         echo '<tr>';
             echo '<td>' . 'Title'.   '</td>';
             echo '<td>' . 'Rating'.   '</td>';
             echo '<td>' . ''.   '</td>';
         echo '</tr>';
-        echo '<table border=1  style="display: inline-block;">';                 
         while ($row = $stmt -> fetch()){
             $title = $row['title'];
             echo '<tr>';
@@ -193,7 +191,11 @@
                         
         $stmt -> execute ();
         echo '<table border=1 style="display: inline-block;">';                 
-
+        echo '<tr>';
+            echo '<td>' . 'Title'.   '</td>';
+            echo '<td>' . 'Rating'.   '</td>';
+            echo '<td>' . ''.   '</td>';
+        echo '</tr>';
         while ($row = $stmt -> fetch()){
             $title =$row['title'];
             echo '<tr>';
@@ -220,8 +222,12 @@
         $stmt = $dbConn->prepare($sql);
                         
         $stmt -> execute ();
-         echo '<table border=1 style="display: inline-block;">';                 
-
+        echo '<table border=1 style="display: inline-block;">';                 
+        echo '<tr>';
+            echo '<td>' . 'Title'.   '</td>';
+            echo '<td>' . 'Director'.   '</td>';
+            echo '<td>' . ''.   '</td>';
+        echo '</tr>';
         while ($row = $stmt -> fetch()){
                 $title = $row['title'];
             echo '<tr>';
@@ -248,7 +254,12 @@
         $stmt = $dbConn->prepare($sql);
 
         $stmt -> execute ();
-         echo '<table border=1 style="display: inline-block;">';                 
+        echo '<table border=1 style="display: inline-block;">'; 
+        echo '<tr>';
+            echo '<td>' . 'Title'.   '</td>';
+            echo '<td>' . 'Rating'.   '</td>';
+            echo '<td>' . ''.   '</td>';
+        echo '</tr>';
         while ($row = $stmt -> fetch()){
             $title = $row['title'];
             echo '<tr>';
@@ -275,7 +286,12 @@
         $stmt = $dbConn->prepare($sql);
         
         $stmt -> execute ();
-         echo '<table border=1 style="display: inline-block;">';                 
+        echo '<table border=1 style="display: inline-block;">';  
+        echo '<tr>';
+            echo '<td>' . 'Title'.   '</td>';
+            echo '<td>' . 'Length'.   '</td>';
+            echo '<td>' . ''.   '</td>';
+        echo '</tr>';
         while ($row = $stmt -> fetch()){
             $title = $row['title'];
             echo '<tr>';
@@ -302,7 +318,11 @@
         $stmt = $dbConn->prepare($sql);
         $stmt->execute();
         echo '<table border=1 style="display: inline-block;">';                 
-
+        echo '<tr>';
+            echo '<td>' . 'Title'.   '</td>';
+            echo '<td>' . 'Genre'.   '</td>';
+            echo '<td>' . ''.   '</td>';
+        echo '</tr>';
         while ($row = $stmt -> fetch()){
             $title = $row['title'];
             echo '<tr>';
