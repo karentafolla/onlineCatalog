@@ -3,14 +3,14 @@
     $dbConn = getDatabaseConnection(); 
     
     session_start();
-    //session_destroy();
+    session_destroy();
     
     $counter = isset($_GET['counter']) ? $_GET['counter'] : 0;
     $action = isset($_GET['action']) ? $_GET['action'] : "index action";
     $passedTitle = isset($_GET['title']) ? $_GET['title'] : "Index Title";
     
     //if(!NULL == $_SESSION('cart_items'))
-        var_dump($_SESSION('cart_items'));
+        //var_dump($_SESSION('cart_items'));
     
     echo $counter;
     
@@ -160,6 +160,7 @@
     
 //sorts the movie by title in ASC order
     function sortTitle(){
+        $counter++;
         global $dbConn;
         $sql = "SELECT * FROM movie ORDER BY title ASC";
         $stmt = $dbConn->prepare($sql);
@@ -180,7 +181,7 @@
                     
                     //echo  '<form action="addToCart.php" method="GET">';
                         //<input type="text" id="name" name="name" class="form-control" placeholder="Full Name">
-                        $counter++;
+                        
                        echo "<a href='addToCart.php?title={$title}&counter={$counter}' class='btn btn-primary'>";
                         //echo '<a name="' .$title. '"}';
                         echo "<span class='glyphicon glyphicon-shopping-cart'></span> Add to cart";
