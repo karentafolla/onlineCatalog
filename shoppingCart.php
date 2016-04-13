@@ -9,7 +9,8 @@
     $counter = isset($_GET['counter']) ? $_GET['counter'] : 5;
 
     function printArray(){
-        if($_SESSION['cart_items']=='')
+        global $counter;
+        if($counter ==  0)
         {
             echo "Your cart is empty";
         }

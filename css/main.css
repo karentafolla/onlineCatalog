@@ -10,18 +10,6 @@
 	text-align: center;
 }
 
-.titlec{
-	font-family: times, Times New Roman, times-roman, georgia, serif;
-	color: #444;
-	margin: 0;
-	padding: 20px;
-	font-size: 51px;
-	line-height: 44px;
-	letter-spacing: -2px;
-	font-weight: bold;
-	text-align: center;
-}
-
 .filter{
 	display: inline-block;
 	height:auto;
@@ -41,6 +29,9 @@
 	font-size: 20px;
 	padding-top: 20px;	
 }
+.radioSelections{
+
+}
 
 .bg{
 	background-color: #c3d5d5;
@@ -49,6 +40,7 @@
 .summary{
 	background-color: #ffffff;
 }
+<<<<<<< HEAD
 
 .items{
 	font-size:30px;
@@ -77,10 +69,18 @@
 	margin-left: 50px;
 	position: relative;
 }
-.home{
-	padding-top:50px;
-}
 
-.buy{
-	padding: 20px;
+.information{
+	display: inline-block;
+	height:auto;
+	width:auto;
 }
+/*.radioSelections{*/
+/*	display: inline-block;*/
+/*	text-align: center; */
+/*	color: red;*/
+/*}*/
+/*.iframeWindow{*/
+/*	display: inline;*/
+/*	text-align: center;*/
+/*}*/
