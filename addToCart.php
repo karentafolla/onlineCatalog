@@ -6,9 +6,17 @@
     // need this to start session tracking IN EVERY PHP page using session
     session_start();
     
-    $_SESSION["title"] = $_POST["title"];
+    $title = isset($_GET['title']) ? $_GET['title'] : "";
     
-    
+    //if empty
+    if(!isset($_SESSION['cart_items'])){
+    $_SESSION['cart_items'] = array();
+    }
+    else {
+    $_SESSION["cart_items"] = $title;
+    header('Location: getProductInfo.php?action=added&title' . $title . '&name=' . $name);
+    }
+     
 ?>
 
 <!DOCTYPE html>
