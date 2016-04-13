@@ -3,39 +3,8 @@
     $dbConn = getDatabaseConnection(); 
     
     session_start();
-    session_destroy();
     
-    $counter = isset($_GET['counter']) ? $_GET['counter'] : 0;
-    $action = isset($_GET['action']) ? $_GET['action'] : "index action";
-    $passedTitle = isset($_GET['title']) ? $_GET['title'] : "Index Title";
     
-    //if(!NULL == $_SESSION('cart_items'))
-        //var_dump($_SESSION('cart_items'));
-    
-    echo $counter;
-    
-    if($action == "added"){
-        echo "you added " . $passedTitle;
-    }
-    if($action == "not added"){
-        echo "you did not add";
-    }
-    
-    $counter = isset($_GET['counter']) ? $_GET['counter'] : 0;
-    $action = isset($_GET['action']) ? $_GET['action'] : "index action";
-    $passedTitle = isset($_GET['title']) ? $_GET['title'] : "Index Title";
-    
-    //if(!NULL == $_SESSION('cart_items'))
-        //var_dump($_SESSION('cart_items'));
-        
-    echo $counter;  
-    
-    if($action == "added"){
-        echo "you added " . $passedTitle;
-    }
-    if($action == "not added"){
-        echo "you did not add";
-    }
     //$_SESSION["title"] = $_POST["Title"];
     // Natural join sql look at all different types of joins
     // SQL to get things from different tables that have same EmployeeID
@@ -47,67 +16,69 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <title>Online Catalog</title>
     </head>
-    <body class="bg">
+    <body>
+        
+    <div class="border">
         <div class = "title">
             <h1> Welcome to eMovies</h1>
         </div>
-        <div>
+        <div >
             <h3> Please Select one of the Following: </h3>
         </div>
-        <div class = "radioSelections">
+        <div class="radio">
             <div class="filter">
             <form  action="" method="POST">
-                <!--<fieldset id="Title">-->
-                    <b>Sort by Title:</b> <br>
+                <fieldset id="Title">
+                    Sort by Title: <br>
                     <input type="radio" value="Yes" name="Title"> Yes <br>
                     <input type="radio" value="No" name="Title"> No <br>
-                <!--</fieldset>-->
+                </fieldset>
             </div>
             <div class="filter">
-                <!--<fieldset id="Genre">-->
-                    <b>Refine by Genre: </b> <br>
+                <fieldset id="Genre">
+                    Refine by Genre: <br>
                     <input type="radio" value="Horror" name="Genre"> Horror <br>
                     <input type="radio" value="Action" name="Genre"> Action <br>
                     <input type="radio" value="Thriller" name="Genre"> Thriller <br>
                     <input type="radio" value="Drama" name="Genre"> Drama <br>
                     <input type="radio" value="Experimental" name="Genre"> Experimental <br>
                     <input type="radio" value="Crime" name="Genre"> Crime <br>
-                <!--</fieldset>-->
+                </fieldset>
             </div>
             <div class="filter">
-                <!--<fieldset id="Length">-->
-                    <b>Refine by Length:</b> <br>
+                <fieldset id="Length">
+                    Refine by Length: <br>
                     <input type="radio" value="84" name="Length"> 1 hour 24 mins <br>
                     <input type="radio" value="100" name="Length"> 1 hour 40 mins <br>
                     <input type="radio" value="106" name="Length"> 1 hour 46 mins <br>
-                <!--</fieldset>-->
+                </fieldset>
             </div>
             <div class="filter">
-                <!--<fieldset id="Rating">-->
-                    <b>Refine by Rating:</b> <br>
+                <fieldset id="Rating">
+                    Refine by Rating: <br>
                     <input type="radio" value="PG" name="Rating"> PG <br>
                     <input type="radio" value="PG-13" name="Rating"> PG-13 <br>
                     <input type="radio" value="NC-17" name="Rating"> NC-17 <br>
                     <input type="radio" value="R" name="Rating"> R <br>
-                <!--</fieldset>-->
+                </fieldset>
             </div>
             <div class="filter">
-                <!--<fieldset id="Director">-->
-                    <b>Refine by Director:</b> <br>
+                <fieldset id="Director">
+                    Refine by Director: <br>
                     <input type="radio" value="Christopher Nolan" name="Director"> Christopher Nolan <br>
                     <input type="radio" value="David Silverman" name="Director"> David Silverman <br>
                     <input type="radio" value="Guillermo Del Toro" name="Director"> Guillermo Del Toro <br>
-                <!--</fieldset>-->
-            </div> 
-            <div class="search">
-                <!--<fieldset id="submit">-->
-                    <input type="submit" value="Search Movies" name="searchMovies"> 
-                <!--</fieldset>-->
-            </div>
-                
-            </form>
+                </fieldset>
+            </div>   
         </div>
+                <fieldset id="submit">
+                    <input type="submit" value="Search Movies" name="searchMovies">
+                </fieldset>
+            </form>
+        
+    </div>
         <div class = "information">
+        
         <?php
             if(isset($_POST['Title'])){
                 if($_POST['Title'] == "Yes"){
@@ -140,15 +111,11 @@
             <iframe name="productInfoiFrame" align="right" width="250" height="315" src="getProductInfo.php" frameborder="0"></iframe>
         </div>
         <div class = "shopping cart">
-            
-            <form action="shoppingCart.php" method="POST" id="nameform">
-                <!--<button type="submit" value="Submit">Shopping Cart</button>-->
-            <!--<form action="shoppingCart.php" method="POST" id="nameform">-->
-            <!--    php?php -->
-            <!--        //$cartCount=count($_SESSION['cart_items'])-->
-            <!--    ?>-->
-             <button type="submit" value="Submit">View Shopping Cart <?php echo $cartCount; ?></button>
-
+            <form action="shoppingCart.php" method="GET" id="nameform">
+                <?php
+                $cartCount=count($_SESSION['cart_items'])
+                ?>
+                <center><button type="submit" value="Submit">Cart <?php echo $cartCount; ?></button></center>
             </form>
             
 
@@ -160,11 +127,9 @@
 
 
 <?php
-    //session_start();
+    session_start();
     $_SESSION["title"] = $_POST["title"];
-    $_SESSION['arr'];
-    //$_SESSION['cart_items'] = $_SESSION['title'];
-    
+
 //counts items in cart
     $itemCounter=0;
     function clickCounter(){
@@ -175,14 +140,13 @@
     
 //sorts the movie by title in ASC order
     function sortTitle(){
-        $counter++;
         global $dbConn;
         $sql = "SELECT * FROM movie ORDER BY title ASC";
         $stmt = $dbConn->prepare($sql);
                         
         $stmt -> execute ();
         
-        echo '<table border=1>';                 
+        echo '<table class = "border">';                 
         while ($row = $stmt -> fetch()){
             $title = $row['title'];
             echo '<tr>';
@@ -193,40 +157,20 @@
                     echo $row['rating'];
                 echo '</td>';
                 echo '<td>';
-                    
-                    //echo  '<form action="addToCart.php" method="GET">';
-                        //<input type="text" id="name" name="name" class="form-control" placeholder="Full Name">
-                        
-                       echo "<a href='addToCart.php?title={$title}&counter={$counter}' class='btn btn-primary'>";
-                        //echo '<a name="' .$title. '"}';
-                        echo "<span class='glyphicon glyphicon-shopping-cart'></span> Add to cart";
-                        echo "</a>";
-                        
-                        //echo '<button type="submit" id="name" name="title" class="form-control" value="' . $title . '"> Add to Cart </button>';
-       
-                        
-                    //  echo "<a href='addToCart.php?title=$title'> ";
-                    //  echo "Add to Cart";
-                    //  echo "</a>";
+                     echo "<a href='addToCart.php?title=$title'> ";
+                     echo "Add to Cart";
                     //echo  '<form action="addToCart.php" method="POST">';
                    // echo '<button type="submit" id="name" name="title" class="form-control" value="' . $title . '">Buy</button>';
-
                         // using JS
                         //echo '<button onclick="itemClicked()" type="button" name='.$title .'>Add to Cart</button>';
                         //echo '<button type="button" name='.$title .'>Add to Cart</button>';
-                   // echo '</form>';
+                    echo '</form>';
                 echo '</a></td>';
-                echo '<td>' . $counter. '</td>';
             echo '</tr>';
         }
         echo '</table>';
         
      }
-     
-    //  function addData(){
-    //      $_SESSION['cart_items'][$title] = array('Quantity' => $quantity, 'Total' => $total);
-    //  }
-     
 //     function sortTitleNoOrder(){
 //         global $dbConn;
 //         $sql = "SELECT * FROM movie";
