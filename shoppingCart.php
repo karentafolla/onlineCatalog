@@ -7,12 +7,16 @@
     
     $title = isset($_GET['title']) ? $_GET['title'] : "Something else";
     $counter = isset($_GET['counter']) ? $_GET['counter'] : 5;
-    
-    print_r($_SESSION['cart_items']);
-    
+
     function printArray(){
-        foreach($_SESSION['cart_items'] as $counter => $title){
-            echo $title;
+        if($counter==0)
+        {
+            echo "Your cart is empty";
+        }
+        else{
+            foreach($_SESSION['cart_items'] as $counter => $title){
+                echo $title . "</ br>";
+            }
         }
     }
 ?>
@@ -25,26 +29,20 @@
     </head>
     <body class="bg">
 
-  
-        The title passed from the first page is <?= printArray(); ?> 
-
-        <div class="shoppingCart">
-            Shopping Cart 
+        <div class="titlec">
+            eMovie Shopping Cart 
         </div>
-        <div class="items">
-            Items:<br>
-            <!--// <=?php-->
-            <!--// //$_SESSION["title"]-->
-
-            <!--// while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){-->
-            <!--// extract($row);-->
-            <!--// echo "<table>";-->
-            <!--//     echo "<tr>";-->
-            <!--//         echo "<td>{$title}</td>";-->
-            <!--//     echo "</tr>";-->
-            <!--// echo "</table>";-->
-            <!--// }-->
-            <!--// ?>-->
+        <div class="cart">
+            <div class="items">
+                Items:<br>
+            </div>
+            <div class="itemList">
+                <?= printArray(); ?> 
+            </div>
+            <div class="buy">
+                <!--doesn't do anything -->
+                <input type ="button" value="Buy Now"> 
+            </div>
         </div>
 
         <div class="home">
