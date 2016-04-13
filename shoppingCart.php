@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+    session_start();
 
     include '../team_project_database/database.php'; 
     $dbConn = getDatabaseConnection(); 
@@ -52,5 +52,5 @@ session_start();
     </body>
 </html>
 <?php
-session_destroy();
+    session_destroy();
 ?>
