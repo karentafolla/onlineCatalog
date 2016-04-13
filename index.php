@@ -4,7 +4,21 @@
     
     session_start();
     
+    $counter = isset($_GET['counter']) ? $_GET['counter'] : 0;
+    $action = isset($_GET['action']) ? $_GET['action'] : "index action";
+    $passedTitle = isset($_GET['title']) ? $_GET['title'] : "Index Title";
     
+    //if(!NULL == $_SESSION('cart_items'))
+        //var_dump($_SESSION('cart_items'));
+        
+    echo $counter;  
+    
+    if($action == "added"){
+        echo "you added " . $passedTitle;
+    }
+    if($action == "not added"){
+        echo "you did not add";
+    }
     //$_SESSION["title"] = $_POST["Title"];
     // Natural join sql look at all different types of joins
     // SQL to get things from different tables that have same EmployeeID

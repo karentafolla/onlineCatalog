@@ -21,6 +21,8 @@
 .search{
 	font-size: 35px;
 	padding-top: 20px;
+	padding-bottom: 20px;
+	font-style: bold;
 }
 
 .shoppingCart{
@@ -37,7 +39,6 @@
 
 .summary{
 	background-color: #ffffff;
-	border: 1px solid;
 }
 
 /*.radioSelections{*/
