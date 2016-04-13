@@ -18,6 +18,28 @@
 	padding:15px;
 }
 
+.search{
+	font-size: 35px;
+	padding-top: 20px;
+}
+
+.shoppingCart{
+	font-size: 20px;
+	padding-top: 20px;	
+}
+.radioSelections{
+
+}
+
+.bg{
+	background-color: #ffa85a;
+}
+
+.summary{
+	background-color: #ffffff;
+	border: 1px solid;
+}
+
 /*.radioSelections{*/
 /*	display: inline-block;*/
 /*	text-align: center; */

@@ -33,7 +33,7 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <title>Online Catalog</title>
     </head>
-    <body>
+    <body class="bg">
         <div class = "title">
             <h1> Welcome to eMovies</h1>
         </div>
@@ -43,56 +43,57 @@
         <div class = "radioSelections">
             <div class="filter">
             <form  action="" method="POST">
-                <fieldset id="Title">
-                    Sort by Title: <br>
+                <!--<fieldset id="Title">-->
+                    <b>Sort by Title:</b> <br>
                     <input type="radio" value="Yes" name="Title"> Yes <br>
                     <input type="radio" value="No" name="Title"> No <br>
-                </fieldset>
+                <!--</fieldset>-->
             </div>
             <div class="filter">
-                <fieldset id="Genre">
-                    Refine by Genre: <br>
+                <!--<fieldset id="Genre">-->
+                    <b>Refine by Genre: </b> <br>
                     <input type="radio" value="Horror" name="Genre"> Horror <br>
                     <input type="radio" value="Action" name="Genre"> Action <br>
                     <input type="radio" value="Thriller" name="Genre"> Thriller <br>
                     <input type="radio" value="Drama" name="Genre"> Drama <br>
                     <input type="radio" value="Experimental" name="Genre"> Experimental <br>
                     <input type="radio" value="Crime" name="Genre"> Crime <br>
-                </fieldset>
+                <!--</fieldset>-->
             </div>
             <div class="filter">
-                <fieldset id="Length">
-                    Refine by Length: <br>
+                <!--<fieldset id="Length">-->
+                    <b>Refine by Length:</b> <br>
                     <input type="radio" value="84" name="Length"> 1 hour 24 mins <br>
                     <input type="radio" value="100" name="Length"> 1 hour 40 mins <br>
                     <input type="radio" value="106" name="Length"> 1 hour 46 mins <br>
-                </fieldset>
+                <!--</fieldset>-->
             </div>
             <div class="filter">
-                <fieldset id="Rating">
-                    Refine by Rating: <br>
+                <!--<fieldset id="Rating">-->
+                    <b>Refine by Rating:</b> <br>
                     <input type="radio" value="PG" name="Rating"> PG <br>
                     <input type="radio" value="PG-13" name="Rating"> PG-13 <br>
                     <input type="radio" value="NC-17" name="Rating"> NC-17 <br>
                     <input type="radio" value="R" name="Rating"> R <br>
-                </fieldset>
+                <!--</fieldset>-->
             </div>
             <div class="filter">
-                <fieldset id="Director">
-                    Refine by Director: <br>
+                <!--<fieldset id="Director">-->
+                    <b>Refine by Director:</b> <br>
                     <input type="radio" value="Christopher Nolan" name="Director"> Christopher Nolan <br>
                     <input type="radio" value="David Silverman" name="Director"> David Silverman <br>
                     <input type="radio" value="Guillermo Del Toro" name="Director"> Guillermo Del Toro <br>
-                </fieldset>
-            </div>   
-                <fieldset id="submit">
+                <!--</fieldset>-->
+            </div> 
+            <div class="search">
+                <!--<fieldset id="submit">-->
                     <input type="submit" value="Search Movies" name="searchMovies"> 
-                </fieldset>
+                <!--</fieldset>-->
+            </div>
                 
             </form>
         </div>
         <div class = "information">
-        
         <?php
             if(isset($_POST['Title'])){
                 if($_POST['Title'] == "Yes"){
