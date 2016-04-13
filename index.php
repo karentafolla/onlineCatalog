@@ -125,7 +125,7 @@
         <div class="iframeWindow">
             <iframe name="productInfoiFrame" align="right" width="250" height="315" src="getProductInfo.php" frameborder="0"></iframe>
         </div>
-        <div class = "shoppingcCart">
+        <div class = "shoppingCart">
             
             <form action="shoppingCart.php" method="POST" id="nameform">
 
@@ -152,7 +152,12 @@
                         
         $stmt -> execute ();
         
-        echo '<table border=1>';                 
+        echo '<table border=1>';  
+        echo '<tr>';
+            echo '<td>' . 'Title'.   '</td>';
+            echo '<td>' . 'Rating'.   '</td>';
+            echo '<td>' . ''.   '</td>';
+        echo '</tr>';
         while ($row = $stmt -> fetch()){
             $title = $row['title'];
             echo '<tr>';
@@ -182,7 +187,12 @@
         $stmt = $dbConn->prepare($sql);
                         
         $stmt -> execute ();
-        echo '<table border=1>';                 
+        echo '<table border=1>'; 
+        echo '<tr>';
+            echo '<td>' . 'Title'.   '</td>';
+            echo '<td>' . 'Rating'.   '</td>';
+            echo '<td>' . ''.   '</td>';
+        echo '</tr>';
         while ($row = $stmt -> fetch()){
             $title =$row['title'];
             echo '<tr>';
@@ -209,7 +219,12 @@
         $stmt = $dbConn->prepare($sql);
                         
         $stmt -> execute ();
-         echo '<table border=1>';                 
+         echo '<table border=1>'; 
+         echo '<tr>';
+            echo '<td>' . 'Title'.   '</td>';
+            echo '<td>' . 'Director'.   '</td>';
+            echo '<td>' . ''.   '</td>';
+        echo '</tr>';
         while ($row = $stmt -> fetch()){
                 $title = $row['title'];
             echo '<tr>';
@@ -237,7 +252,12 @@
 
         $stmt -> execute ();
         
-         echo '<table border=1>';                 
+         echo '<table border=1>';
+         echo '<tr>';
+            echo '<td>' . 'Title'.   '</td>';
+            echo '<td>' . 'Rating'.   '</td>';
+            echo '<td>' . ''.   '</td>';
+        echo '</tr>';
         while ($row = $stmt -> fetch()){
             $title = $row['title'];
             echo '<tr>';
@@ -265,7 +285,12 @@
         
         $stmt -> execute ();
         
-         echo '<table border=1>';                 
+         echo '<table border=1>'; 
+         echo '<tr>';
+            echo '<td>' . 'Title'.   '</td>';
+            echo '<td>' . 'Length'.   '</td>';
+            echo '<td>' . ''.   '</td>';
+        echo '</tr>';
         while ($row = $stmt -> fetch()){
             $title = $row['title'];
             echo '<tr>';
@@ -291,7 +316,12 @@
         $sql = "SELECT * FROM movie WHERE genre = '". $genre. "' ORDER BY title ASC";
         $stmt = $dbConn->prepare($sql);
         $stmt->execute();
-        echo '<table border=1>';                 
+        echo '<table border=1>'; 
+        echo '<tr>';
+            echo '<td>' . 'Title'.   '</td>';
+            echo '<td>' . 'Genre'.   '</td>';
+            echo '<td>' . ''.   '</td>';
+        echo '</tr>';
         while ($row = $stmt -> fetch()){
             $title = $row['title'];
             echo '<tr>';

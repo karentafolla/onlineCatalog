@@ -54,17 +54,28 @@
 	font-size:30px;
 	font-style:bold;
 	font-family:serif;
+	padding-left: 20px;
 }
 
 .itemList{
-	font-size:20px;	
+	font-size:20px;
+	padding-left: 30px;
+	padding-top: 20px;
+}
+
+.buy{
+	position: relative;
+	bottom: 0;
+	right: 0;
 }
 
 .cart{
-	border: 1px solid;
-	width: auto;
-	height:auto;
+	border: 2px solid;
+	width: 300px;
+	height:350px;
 	display: inline-block;
+	margin-left: 50px;
+	position: relative;
 }
 .home{
 	padding-top:50px;

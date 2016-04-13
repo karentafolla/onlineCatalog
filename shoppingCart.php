@@ -14,9 +14,18 @@
             echo "Your cart is empty";
         }
         else{
+            echo '<table border=1 solid>';
+            echo '<tr>';
+            echo '<td>' . 'Title' . '</td>';
+            echo '<td>' . 'Quantity' . '</td>';
+            echo '</tr>';
             foreach($_SESSION['cart_items'] as $counter => $title){
-                echo $title . "    " . $counter . "</ br>";
+                echo '<tr>';
+                echo '<td>' . $title . '</td>';
+                echo '<td>' . $counter . '</td>';
+                echo '</tr>';
             }
+            echo '</table>';
         }
     }
 ?>
