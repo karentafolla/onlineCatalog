@@ -7,6 +7,7 @@
     session_start();
     
     $_SESSION["title"] = $_POST["title"];
+    // $_SESSION['arr'] = $_POST["title"];
     
     
 ?>
@@ -18,7 +19,7 @@
     </head>
     <body>
         The title posted is <?= $_POST["title"] ?> 
-        
+        The title posted is <?= $_POST['arr'] ?> 
         <a href="shoppingCart.php?title=<?= $_POST["title"] ?>">Please Buy Now!</a>
     </body>
 </html>

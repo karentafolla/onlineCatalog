@@ -107,7 +107,7 @@
         </div>
         <div class = "shopping cart">
             
-            <form action="shoppingCart.php" method="GET" id="nameform">
+            <form action="addToCart.php" method="POST" id="nameform">
                 <button type="submit" value="Submit">Shopping Cart</button>
             </form>
             
@@ -122,6 +122,7 @@
 <?php
     session_start();
     $_SESSION["title"] = $_POST["title"];
+    $_SESSION['arr'];
 
 //counts items in cart
     $itemCounter=0;
@@ -152,8 +153,16 @@
                 echo '<td>';
                     
                     echo  '<form action="addToCart.php" method="POST">';
-                        echo '<button type="submit" id="name" name="title" class="form-control" value="' . $title . '">Buy</button>';
+                        //<input type="text" id="name" name="name" class="form-control" placeholder="Full Name">
                         
+                       echo "<a href='index.php?name={$title}' class='btn btn-primary'>";
+                        //echo '<a name="' .$title. '"}';
+                        echo "<span class='glyphicon glyphicon-shopping-cart'></span> Add to cart";
+                        echo "</a>";
+                        
+                        //echo '<button type="submit" id="name" name="title" class="form-control" value="' . $title . '">Buy</button>';
+                        $ar = array();
+                        array_push($ar,$title);
                         // using JS
                         //echo '<button onclick="itemClicked()" type="button" name='.$title .'>Add to Cart</button>';
                         //echo '<button type="button" name='.$title .'>Add to Cart</button>';
