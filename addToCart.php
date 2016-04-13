@@ -11,7 +11,7 @@
     // $_SESSION['arr'] = $_POST["title"];
 
     $title = isset($_GET['title']) ? $_GET['title'] : "Something else";
-    $counter = isset($_GET['counter']) ? $_GET['counter'] : 5;
+    $counter = isset($_GET['counter']) ? $_GET['counter'] : 0;
     
     $counter++;
     echo $counter;

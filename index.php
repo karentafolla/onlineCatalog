@@ -121,7 +121,7 @@
         <div class = "shopping cart">
             
             <form action="shoppingCart.php" method="POST" id="nameform">
-                <button type="submit" value="Submit">View Shopping Cart: <?php global $counter; echo $counter ?> item(S)</button>
+                <button type="submit" value="Submit">View Shopping Cart: <?php global $counter; echo $counter ?> item(s)</button>
             </form>
 
 
